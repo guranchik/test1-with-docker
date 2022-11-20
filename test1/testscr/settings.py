@@ -16,6 +16,8 @@ import os
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
+
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
@@ -25,7 +27,9 @@ SECRET_KEY = 'django-insecure-@=jm&xbffj4vfnwzbt+uej-nhb$@ez$14h5ptdp^83k7)gy-)t
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.8.20']
+ALLOWED_HOSTS = ['*']
+
+
 
 
 # Application definition
@@ -76,11 +80,16 @@ WSGI_APPLICATION = 'testscr.wsgi.application'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+	'default': {
+		'ENGINE': 'django.db.backends.mysql',
+		'NAME': 'db1',
+		'USER': 'fedor',
+		'PASSWORD': '1321',
+		'HOST':'192.168.8.3',
+		'PORT':'3306',
+	}
 }
+
 
 
 # Password validation
