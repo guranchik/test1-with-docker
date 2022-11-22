@@ -1,7 +1,13 @@
 from django.shortcuts import render
-from datetime import datetime
+import datetime
+from .models import Date
 # Create your views here.
 def home(request):
-    current_datetime = datetime.now()
-    print(current_datetime)
-    return render(request, 'home.html')
+    time=str(int(datetime.datetime.now().hour+3))+":"+str(datetime.datetime.now().minute)
+    Date1 = Date()
+    Date1.date = time
+    Date1.save()
+    dates=""
+    for a in Date.objects.all():
+        dates= dates+" "+a.date
+    return render(request, 'home.html',{"dates": dates})
